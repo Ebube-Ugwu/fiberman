@@ -1,0 +1,154 @@
+2026-07-09T22:34:46.163+0100 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonMain] Assuming the daemon was started with following jvm opts: [-XX:MaxMetaspaceSize=384m, -XX:+HeapDumpOnOutOfMemoryError, -Xms256m, -Xmx512m, -Dfile.encoding=UTF-8, -Duser.country, -Duser.language=en, -Duser.variant]
+2026-07-09T22:34:46.641+0100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface wlp2s0
+2026-07-09T22:34:46.644+0100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2026-07-09T22:34:46.646+0100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /fe80:0:0:0:a67f:bdb4:ade0:41b7%wlp2s0
+2026-07-09T22:34:46.648+0100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /10.232.150.124
+2026-07-09T22:34:46.650+0100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface lo
+2026-07-09T22:34:46.652+0100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? true
+2026-07-09T22:34:46.654+0100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding loopback address /0:0:0:0:0:0:0:1%lo
+2026-07-09T22:34:46.657+0100 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding loopback address /127.0.0.1
+2026-07-09T22:34:46.917+0100 [INFO] [org.gradle.launcher.daemon.server.Daemon] start() called on daemon - DefaultDaemonContext[uid=28a76cce-927a-4482-bb50-a8dfb0c16db8,javaHome=/home/ebube/.sdkman/candidates/java/21.0.11-graal,javaVersion=21,javaVendor=Oracle Corporation,daemonRegistryDir=/home/ebube/projects/portfolio/fiberman/.gradle/daemon,pid=3690274,idleTimeout=120000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country,-Duser.language=en,-Duser.variant]
+2026-07-09T22:34:46.942+0100 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Listening on [e3648796-ccea-4b9b-a1df-378bf9761018 port:43657, addresses:[localhost/127.0.0.1]].
+2026-07-09T22:34:46.949+0100 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] Daemon starting at: Thu Jul 09 22:34:46 WAT 2026, with address: [e3648796-ccea-4b9b-a1df-378bf9761018 port:43657, addresses:[localhost/127.0.0.1]]
+2026-07-09T22:34:46.951+0100 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertising the daemon address to the clients: [e3648796-ccea-4b9b-a1df-378bf9761018 port:43657, addresses:[localhost/127.0.0.1]]
+2026-07-09T22:34:46.953+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertised daemon context: DefaultDaemonContext[uid=28a76cce-927a-4482-bb50-a8dfb0c16db8,javaHome=/home/ebube/.sdkman/candidates/java/21.0.11-graal,javaVersion=21,javaVendor=Oracle Corporation,daemonRegistryDir=/home/ebube/projects/portfolio/fiberman/.gradle/daemon,pid=3690274,idleTimeout=120000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country,-Duser.language=en,-Duser.variant]
+2026-07-09T22:34:46.957+0100 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Storing daemon address: [e3648796-ccea-4b9b-a1df-378bf9761018 port:43657, addresses:[localhost/127.0.0.1]], context: DefaultDaemonContext[uid=28a76cce-927a-4482-bb50-a8dfb0c16db8,javaHome=/home/ebube/.sdkman/candidates/java/21.0.11-graal,javaVersion=21,javaVendor=Oracle Corporation,daemonRegistryDir=/home/ebube/projects/portfolio/fiberman/.gradle/daemon,pid=3690274,idleTimeout=120000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country,-Duser.language=en,-Duser.variant]
+2026-07-09T22:34:46.990+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2026-07-09T22:34:47.009+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2026-07-09T22:34:47.033+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2026-07-09T22:34:47.036+0100 [LIFECYCLE] [org.gradle.launcher.daemon.server.Daemon] Daemon server started.
+2026-07-09T22:34:47.042+0100 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonStartupCommunication] Completed writing the daemon greeting. Closing streams...
+2026-07-09T22:34:47.077+0100 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stopOnExpiration() called on daemon
+2026-07-09T22:34:47.084+0100 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] awaitExpiration() called on daemon
+2026-07-09T22:34:47.090+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2026-07-09T22:34:47.116+0100 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Accepted connection from /127.0.0.1:41374 to /127.0.0.1:43657.
+2026-07-09T22:34:47.244+0100 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 32: received class org.gradle.launcher.daemon.protocol.Build
+2026-07-09T22:34:47.246+0100 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 32: Received non-IO message from client: Build{id=f7a890f6-28aa-4b50-8d65-a435d91b2609, currentDir=/home/ebube/projects/portfolio/fiberman/fiberman-java-backend}
+2026-07-09T22:34:47.249+0100 [INFO] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received command: Build{id=f7a890f6-28aa-4b50-8d65-a435d91b2609, currentDir=/home/ebube/projects/portfolio/fiberman/fiberman-java-backend}.
+2026-07-09T22:34:47.251+0100 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Starting executing command: Build{id=f7a890f6-28aa-4b50-8d65-a435d91b2609, currentDir=/home/ebube/projects/portfolio/fiberman/fiberman-java-backend} with connection: socket connection from /127.0.0.1:43657 to /127.0.0.1:41374.
+2026-07-09T22:34:47.263+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: started DaemonCommandExecution[command = Build{id=f7a890f6-28aa-4b50-8d65-a435d91b2609, currentDir=/home/ebube/projects/portfolio/fiberman/fiberman-java-backend}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:43657 to /127.0.0.1:41374] after 0.005566666666666667 minutes of idle
+2026-07-09T22:34:47.266+0100 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as busy, address: [e3648796-ccea-4b9b-a1df-378bf9761018 port:43657, addresses:[localhost/127.0.0.1]]
+2026-07-09T22:34:47.268+0100 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [e3648796-ccea-4b9b-a1df-378bf9761018 port:43657, addresses:[localhost/127.0.0.1]]
+2026-07-09T22:34:47.272+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2026-07-09T22:34:47.275+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2026-07-09T22:34:47.280+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2026-07-09T22:34:47.283+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2026-07-09T22:34:47.286+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2026-07-09T22:34:47.290+0100 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=f7a890f6-28aa-4b50-8d65-a435d91b2609, currentDir=/home/ebube/projects/portfolio/fiberman/fiberman-java-backend}. Dispatching build started information...
+2026-07-09T22:34:47.293+0100 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 34: dispatching org.gradle.launcher.daemon.protocol.BuildStarted@2a493531
+2026-07-09T22:34:47.298+0100 [DEBUG] [org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment] Configuring env variables: [PATH, PKG_CONFIG_PATH, HISTCONTROL, XMODIFIERS, GDMSESSION, DBUS_SESSION_BUS_ADDRESS, ANDROID_HOME, GH_PAGER, COLORTERM, PTYXIS_VERSION, SDKMAN_DIR, USERNAME, TERM_PROGRAM_VERSION, PWD, MANAGERPID, SDKMAN_BROKER_API, NVM_CD_FLAGS, LESSOPEN, PAGER, SDKMAN_CANDIDATES_API, PIPENV_VENV_IN_PROJECT, HOMEBREW_CELLAR, SCRATCHPAD, _ble_util_fdvars_export, DEBUGINFOD_IMA_CERT_PATH, LC_CTYPE, GNOME_SETUP_DISPLAY, CODEX_MANAGED_PACKAGE_ROOT, SHLVL, QT_IM_MODULES, GREENLIGHT_DB_DSN, MYSQL_PS1, HISTSIZE, SPRING_PROFILES_ACTIVE, JAVA_HOME, KOTLIN_HOME, MEMORY_PRESSURE_WATCH, TERM, HOMEBREW_PREFIX, MOZ_GMP_PATH, FLATPAK_TTY_PROGRESS, GRADLE_HOME, GROOVY_HOME, NVM_INC, GRADLE_USER_HOME, WAYLAND_DISPLAY, CODEX_THREAD_ID, HOMEBREW_REPOSITORY, XDG_SESSION_CLASS, TERM_PROGRAM, DESKTOP_SESSION, LINENO, XDG_MENU_PREFIX, VTE_VERSION, PTYXIS_PROFILE, VOID_DB_DSN, SCREEN_SIZE, OPENROUTER_API_KEY, NVM_BIN, INVOCATION_ID, XAUTHORITY, XDG_DATA_DIRS, CLIPBOARD_DB, GIT_PAGER, bleopt_connect_tty, PNPM_HOME, XDG_CURRENT_DESKTOP, JOURNAL_STREAM, MAVEN_HOME, MAIL, JETTY_HOME, MANAGERPIDFDID, LOGNAME, TOMCAT_HOME, INFOPATH, SPRINGBOOT_HOME, CODEX_MANAGED_BY_NPM, CODEX_SANDBOX_NETWORK_DISABLED, SHELL, OPENAI, GOPATH, OLDPWD, VISUAL, GOLVIA, DEBUGINFOD_URLS, LESS, SYSTEMD_EXEC_PID, XDG_SESSION_DESKTOP, LS_COLORS, TMUX_PANE, MEMORY_PRESSURE_WRITE, POSTGRES_SUPER, BLE_SESSION_ID, QT_IM_MODULE, JBANG_HOME, XDG_SESSION_EXTRA_DEVICE_ACCESS, LANG, XDG_SESSION_TYPE, NOTES, HISTFILESIZE, DISPLAY, SITE_HOME, NO_COLOR, SCALA_HOME, SDKMAN_CANDIDATES_DIR, CODEX_CI, GDM_LANG, NVM_DIR, OSH, RAWG_API, LSCOLORS, SDKMAN_PLATFORM, USER, XDG_CONFIG_HOME, GH_TOKEN, EDITOR, HOSTNAME, TMUX_PLUGIN_MANAGER_PATH, ECHAT, _ble_util_fdlist_cloexec, TMUX, OPENAI_API_KEY, XDG_RUNTIME_DIR, HOME, DOTFILES]
+2026-07-09T22:34:47.321+0100 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+2026-07-09T22:34:47.322+0100 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 3690274). The daemon log file: /home/ebube/projects/portfolio/fiberman/.gradle/daemon/9.5.1/daemon-3690274.out.log
+2026-07-09T22:34:47.329+0100 [DEBUG] [org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon] Requesting daemon stop after processing Build{id=f7a890f6-28aa-4b50-8d65-a435d91b2609, currentDir=/home/ebube/projects/portfolio/fiberman/fiberman-java-backend}
+2026-07-09T22:34:47.331+0100 [LIFECYCLE] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Daemon will be stopped at the end of the build 
+2026-07-09T22:34:47.333+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Stop as soon as idle requested. The daemon is busy
+2026-07-09T22:34:47.334+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon stop has been requested. Sleeping until state changes.
+2026-07-09T22:34:47.350+0100 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+2026-07-09T22:34:47.353+0100 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=28a76cce-927a-4482-bb50-a8dfb0c16db8,javaHome=/home/ebube/.sdkman/candidates/java/21.0.11-graal,javaVersion=21,javaVendor=Oracle Corporation,daemonRegistryDir=/home/ebube/projects/portfolio/fiberman/.gradle/daemon,pid=3690274,idleTimeout=120000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country,-Duser.language=en,-Duser.variant]
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+BUILD SUCCESSFUL in 2m 53s
+4 actionable tasks: 4 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.1/userguide/configuration_cache_enabling.html
+2026-07-09T22:37:34.392+0100 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has finished executing the build.
+2026-07-09T22:37:34.403+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon stop has been requested. Sleeping until state changes.
+2026-07-09T22:37:34.405+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: finished waiting for DaemonCommandExecution[command = Build{id=f7a890f6-28aa-4b50-8d65-a435d91b2609, currentDir=/home/ebube/projects/portfolio/fiberman/fiberman-java-backend}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:43657 to /127.0.0.1:41374]. Result org.gradle.launcher.daemon.server.DaemonStateCoordinator@19cf8b2b with state StopRequested
+2026-07-09T22:37:34.406+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: completed DaemonCommandExecution[command = Build{id=f7a890f6-28aa-4b50-8d65-a435d91b2609, currentDir=/home/ebube/projects/portfolio/fiberman/fiberman-java-backend}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:43657 to /127.0.0.1:41374]
+2026-07-09T22:37:34.407+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2026-07-09T22:37:34.408+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Marking daemon stopped due to command completed and stop requested. The daemon is not running a build
+2026-07-09T22:37:34.409+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon has stopped.
+2026-07-09T22:37:34.409+0100 [DEBUG] [org.gradle.launcher.daemon.server.exec.ReturnResult] Daemon is dispatching the build result: Success[value=org.gradle.launcher.exec.BuildActionResult@64e7c808]
+2026-07-09T22:37:34.411+0100 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stop() called on daemon
+2026-07-09T22:37:34.411+0100 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 31: dispatching Success[value=org.gradle.launcher.exec.BuildActionResult@64e7c808]
+2026-07-09T22:37:34.411+0100 [INFO] [org.gradle.launcher.daemon.server.Daemon] Stop requested. Daemon is removing its presence from the registry...
+2026-07-09T22:37:34.414+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Removing our presence to clients, eg. removing this address from the registry: [e3648796-ccea-4b9b-a1df-378bf9761018 port:43657, addresses:[localhost/127.0.0.1]]
+2026-07-09T22:37:34.415+0100 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Removing daemon address: [e3648796-ccea-4b9b-a1df-378bf9761018 port:43657, addresses:[localhost/127.0.0.1]]
+2026-07-09T22:37:34.417+0100 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 32: received class org.gradle.launcher.daemon.protocol.CloseInput
+2026-07-09T22:37:34.418+0100 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Finishing executing command: Build{id=f7a890f6-28aa-4b50-8d65-a435d91b2609, currentDir=/home/ebube/projects/portfolio/fiberman/fiberman-java-backend}
+2026-07-09T22:37:34.418+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2026-07-09T22:37:34.418+0100 [DEBUG] [org.gradle.launcher.daemon.server.exec.CleanUpVirtualFileSystemAfterBuild] Cleaning virtual file system after build finished
+2026-07-09T22:37:34.423+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2026-07-09T22:37:34.421+0100 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 32: Received IO message from client: org.gradle.launcher.daemon.protocol.CloseInput@206b4dc5
+2026-07-09T22:37:34.426+0100 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 32: received class org.gradle.launcher.daemon.protocol.Finished
+2026-07-09T22:37:34.426+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2026-07-09T22:37:34.427+0100 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 32: Received non-IO message from client: org.gradle.launcher.daemon.protocol.Finished@4c19a634
+2026-07-09T22:37:34.429+0100 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received finished message: org.gradle.launcher.daemon.protocol.Finished@4c19a634
+2026-07-09T22:37:34.429+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Address removed from registry.
+2026-07-09T22:37:34.430+0100 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 31: stopping connection
+2026-07-09T22:37:34.432+0100 [DEBUG] [org.gradle.internal.remote.internal.inet.SocketConnection] Discarding EOFException: java.io.EOFException
+2026-07-09T22:37:34.433+0100 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 32: received null
+2026-07-09T22:37:34.433+0100 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 32: Received end-of-input from client.
+2026-07-09T22:37:34.434+0100 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 31: stopping connection
+2026-07-09T22:37:34.438+0100 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for jars (/home/ebube/projects/portfolio/fiberman/.gradle/caches/jars-9)
+2026-07-09T22:37:34.439+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on jars (/home/ebube/projects/portfolio/fiberman/.gradle/caches/jars-9).
+2026-07-09T22:37:34.441+0100 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for file content cache (/home/ebube/projects/portfolio/fiberman/.gradle/caches/9.5.1/fileContent)
+2026-07-09T22:37:34.442+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on file content cache (/home/ebube/projects/portfolio/fiberman/.gradle/caches/9.5.1/fileContent).
+2026-07-09T22:37:34.444+0100 [DEBUG] [org.gradle.internal.watch.vfs.impl.WatchingVirtualFileSystem] Closing VFS, dropping state
+2026-07-09T22:37:34.463+0100 [DEBUG] [org.gradle.internal.watch.registry.impl.DefaultFileWatcherRegistry] Finished listening to file system change events
+2026-07-09T22:37:34.463+0100 [DEBUG] [org.gradle.cache.internal.DefaultCacheCoordinator] Cache Generated Gradle JARs cache (/home/ebube/projects/portfolio/fiberman/.gradle/caches/9.5.1/generated-gradle-jars) was closed 0 times.
+2026-07-09T22:37:34.464+0100 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for artifact cache (/home/ebube/projects/portfolio/fiberman/.gradle/caches/modules-2)
+2026-07-09T22:37:34.465+0100 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache module-artifact.bin (/home/ebube/projects/portfolio/fiberman/.gradle/caches/modules-2/metadata-2.107/module-artifact.bin)
+2026-07-09T22:37:34.466+0100 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache module-metadata.bin (/home/ebube/projects/portfolio/fiberman/.gradle/caches/modules-2/metadata-2.107/module-metadata.bin)
+2026-07-09T22:37:34.466+0100 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache resource-at-url.bin (/home/ebube/projects/portfolio/fiberman/.gradle/caches/modules-2/metadata-2.107/resource-at-url.bin)
+2026-07-09T22:37:34.467+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on artifact cache (/home/ebube/projects/portfolio/fiberman/.gradle/caches/modules-2).
+2026-07-09T22:37:34.470+0100 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for journal cache (/home/ebube/projects/portfolio/fiberman/.gradle/caches/journal-1)
+2026-07-09T22:37:34.471+0100 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache file-access.bin (/home/ebube/projects/portfolio/fiberman/.gradle/caches/journal-1/file-access.bin)
+2026-07-09T22:37:34.472+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on journal cache (/home/ebube/projects/portfolio/fiberman/.gradle/caches/journal-1).
+2026-07-09T22:37:34.474+0100 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for file hash cache (/home/ebube/projects/portfolio/fiberman/.gradle/caches/9.5.1/fileHashes)
+2026-07-09T22:37:34.475+0100 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache fileHashes.bin (/home/ebube/projects/portfolio/fiberman/.gradle/caches/9.5.1/fileHashes/fileHashes.bin)
+2026-07-09T22:37:34.475+0100 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache resourceHashesCache.bin (/home/ebube/projects/portfolio/fiberman/.gradle/caches/9.5.1/fileHashes/resourceHashesCache.bin)
+2026-07-09T22:37:34.476+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on file hash cache (/home/ebube/projects/portfolio/fiberman/.gradle/caches/9.5.1/fileHashes).
+2026-07-09T22:37:34.478+0100 [DEBUG] [org.gradle.cache.internal.LockOnDemandCrossProcessCacheAccess] Releasing file lock for Java compile cache (/home/ebube/projects/portfolio/fiberman/.gradle/caches/9.5.1/javaCompile)
+2026-07-09T22:37:34.479+0100 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache jarAnalysis.bin (/home/ebube/projects/portfolio/fiberman/.gradle/caches/9.5.1/javaCompile/jarAnalysis.bin)
+2026-07-09T22:37:34.480+0100 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache classAnalysis.bin (/home/ebube/projects/portfolio/fiberman/.gradle/caches/9.5.1/javaCompile/classAnalysis.bin)
+2026-07-09T22:37:34.481+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on Java compile cache (/home/ebube/projects/portfolio/fiberman/.gradle/caches/9.5.1/javaCompile).
+2026-07-09T22:37:34.486+0100 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Deleting unused version-specific caches in /home/ebube/projects/portfolio/fiberman/.gradle/caches' started
+2026-07-09T22:37:34.510+0100 [DEBUG] [org.gradle.cache.internal.VersionSpecificCacheCleanupAction] Processed version-specific caches at /home/ebube/projects/portfolio/fiberman/.gradle/caches for cleanup in 0.022 secs
+2026-07-09T22:37:34.511+0100 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Deleting unused version-specific caches in /home/ebube/projects/portfolio/fiberman/.gradle/caches'
+2026-07-09T22:37:34.511+0100 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Deleting unused version-specific caches in /home/ebube/projects/portfolio/fiberman/.gradle/caches' completed
+2026-07-09T22:37:34.515+0100 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Deleting unused Gradle distributions in /home/ebube/projects/portfolio/fiberman/.gradle/wrapper/dists' started
+2026-07-09T22:37:34.522+0100 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Deleting unused Gradle distributions in /home/ebube/projects/portfolio/fiberman/.gradle/wrapper/dists'
+2026-07-09T22:37:34.523+0100 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Deleting unused Gradle distributions in /home/ebube/projects/portfolio/fiberman/.gradle/wrapper/dists' completed
+2026-07-09T22:37:34.526+0100 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Deleting old daemon log files in /home/ebube/projects/portfolio/fiberman/.gradle/daemon' started
+2026-07-09T22:37:34.529+0100 [DEBUG] [org.gradle.cache.internal.DaemonLogCleanupAction] Processed daemon logs at /home/ebube/projects/portfolio/fiberman/.gradle/daemon for cleanup in 0.002 secs
+2026-07-09T22:37:34.530+0100 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Deleting old daemon log files in /home/ebube/projects/portfolio/fiberman/.gradle/daemon'
+2026-07-09T22:37:34.530+0100 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Deleting old daemon log files in /home/ebube/projects/portfolio/fiberman/.gradle/daemon' completed
+2026-07-09T22:37:34.531+0100 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stop() called on daemon
+2026-07-09T22:37:34.532+0100 [INFO] [org.gradle.launcher.daemon.server.Daemon] Stop requested. Daemon is removing its presence from the registry...
+2026-07-09T22:37:34.533+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Removing our presence to clients, eg. removing this address from the registry: [e3648796-ccea-4b9b-a1df-378bf9761018 port:43657, addresses:[localhost/127.0.0.1]]
+2026-07-09T22:37:34.533+0100 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Removing daemon address: [e3648796-ccea-4b9b-a1df-378bf9761018 port:43657, addresses:[localhost/127.0.0.1]]
+2026-07-09T22:37:34.534+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2026-07-09T22:37:34.535+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2026-07-09T22:37:34.537+0100 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2026-07-09T22:37:34.538+0100 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Address removed from registry.
+2026-07-09T22:37:34.540+0100 [DEBUG] [org.gradle.cache.internal.locklistener.DefaultFileLockContentionHandler] File lock listener thread completed.
+2026-07-09T22:37:34.547+0100 [DEBUG] [java.lang.Runtime] Runtime.exit() called with status: 0
+java.lang.Throwable: Runtime.exit(0)
+	at java.base/java.lang.Shutdown.logRuntimeExit(Shutdown.java:179)
+	at java.base/java.lang.Shutdown.exit(Shutdown.java:160)
+	at java.base/java.lang.Runtime.exit(Runtime.java:188)
+	at java.base/java.lang.System.exit(System.java:1921)
+	at org.gradle.launcher.bootstrap.ProcessCompleter.complete(ProcessCompleter.java:21)
+	at org.gradle.launcher.bootstrap.EntryPoint.run(EntryPoint.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.launcher.bootstrap.ProcessBootstrap.runNoExit(ProcessBootstrap.java:72)
+	at org.gradle.launcher.bootstrap.ProcessBootstrap.run(ProcessBootstrap.java:39)
+	at org.gradle.launcher.daemon.bootstrap.GradleDaemon.main(GradleDaemon.java:22)
+Daemon vm is shutting down... The daemon has exited normally or was terminated in response to a user interrupt.
+2026-07-09T22:37:34.552+0100 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Removing daemon address: [e3648796-ccea-4b9b-a1df-378bf9761018 port:43657, addresses:[localhost/127.0.0.1]]
+2026-07-09T22:37:34.553+0100 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] VM shutdown hook was unable to remove the daemon address from the registry. It will be cleaned up later.
+java.lang.IllegalStateException: Cannot start managing file contention because this handler has been closed.
+	at org.gradle.cache.internal.locklistener.DefaultFileLockContentionHandler.assertNotStopped(DefaultFileLockContentionHandler.java:267)
+	at org.gradle.cache.internal.locklistener.DefaultFileLockContentionHandler.reservePort(DefaultFileLockContentionHandler.java:312)
+	at org.gradle.cache.internal.DefaultFileLockManager.lock(DefaultFileLockManager.java:127)
+	at org.gradle.cache.internal.DefaultFileLockManager.lock(DefaultFileLockManager.java:109)
+	at org.gradle.cache.internal.DefaultFileLockManager.lock(DefaultFileLockManager.java:104)
+	at org.gradle.cache.internal.OnDemandFileAccess.updateFile(OnDemandFileAccess.java:51)
+	at org.gradle.cache.internal.FileBackedObjectHolder.update(FileBackedObjectHolder.java:77)
+	at org.gradle.cache.internal.FileIntegrityViolationSuppressingObjectHolderDecorator.lambda$update$0(FileIntegrityViolationSuppressingObjectHolderDecorator.java:48)
+	at org.gradle.cache.internal.FileIntegrityViolationSuppressingObjectHolderDecorator.doUpdate(FileIntegrityViolationSuppressingObjectHolderDecorator.java:58)
+	at org.gradle.cache.internal.FileIntegrityViolationSuppressingObjectHolderDecorator.update(FileIntegrityViolationSuppressingObjectHolderDecorator.java:48)
+	at org.gradle.launcher.daemon.registry.PersistentDaemonRegistry.remove(PersistentDaemonRegistry.java:133)
+	at org.gradle.launcher.daemon.server.Daemon$1.run(Daemon.java:133)
+	at java.base/java.lang.Thread.run(Thread.java:1583)

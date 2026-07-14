@@ -1,0 +1,18 @@
+.history-panel {
+  padding: 18px;
+}
+
+.filters {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.filters label {
+  width: 220px;
+}
+
+.empty-cell {
+  text-align: center;
+  color: var(--text-muted);
+}

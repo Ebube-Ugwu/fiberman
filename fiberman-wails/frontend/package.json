@@ -1,0 +1,9 @@
+{
+  "name": "fiberman-wails-frontend-wrapper",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "bash ./scripts/build-frontend.sh",
+    "dev": "echo 'Use the Angular app in ../fiberman-frontend for iterative frontend development.'"
+  }
+}

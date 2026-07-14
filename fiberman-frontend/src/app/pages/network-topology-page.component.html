@@ -1,0 +1,36 @@
+<section>
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">Peer View</div>
+      <h1 class="title-lg">⎔ Network Topology</h1>
+    </div>
+  </div>
+
+  <article class="screen-panel topology-panel">
+    <div class="topology-canvas">
+      <div class="core-ring ring-1"></div>
+      <div class="core-ring ring-2"></div>
+      <div class="core-ring ring-3"></div>
+      <div class="core-center"></div>
+
+      @for (node of nodes(); track node.id) {
+        <div class="connection-line" [style.--line-color]="node.color" [style.--line-left]="node.left" [style.--line-top]="node.top"></div>
+        <button
+          class="peer-node"
+          [style.left]="node.left"
+          [style.top]="node.top"
+          [style.--node-color]="node.color"
+        ></button>
+      }
+
+      @if (nodes().length > 0) {
+        <div class="tooltip-card">
+          <div>Peer ID</div>
+          <strong>{{ nodes()[0].id }}</strong>
+          <div>Peer Tot: {{ peers().length || nodes().length }}</div>
+          <div>Channel Count: {{ channels().length }}</div>
+        </div>
+      }
+    </div>
+  </article>
+</section>

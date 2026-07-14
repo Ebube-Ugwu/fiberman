@@ -1,0 +1,55 @@
+<div class="page-shell">
+  <div class="window-frame shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">F</div>
+        <div>
+          <div class="brand-name">FiberMan</div>
+        </div>
+      </div>
+
+      <div class="sidebar-caption">Sidebar Navigation</div>
+
+      <nav class="nav-list">
+        @for (item of navItems; track item.route) {
+          @if (item.comingSoon) {
+            <button class="nav-link nav-link-disabled" type="button" (click)="openComingSoon(item)">
+              <span class="nav-icon">{{ item.icon }}</span>
+              <span>{{ item.label }}</span>
+              <span class="nav-badge">Soon</span>
+            </button>
+          } @else {
+            <a [routerLink]="item.route" routerLinkActive="active" class="nav-link">
+              <span class="nav-icon">{{ item.icon }}</span>
+              <span>{{ item.label }}</span>
+            </a>
+          }
+        }
+      </nav>
+    </aside>
+
+    <main class="content">
+      <div class="content-header">
+        <div class="browser-bar"></div>
+        <div class="status-pill" [class.status-offline]="!nodeOnline()">
+          {{ nodeLabel() }}
+        </div>
+      </div>
+
+      <section class="page-body">
+        <router-outlet />
+      </section>
+    </main>
+  </div>
+
+  @if (comingSoonMessage(); as message) {
+    <div class="modal-backdrop" (click)="closeComingSoon()">
+      <div class="modal-card screen-panel" (click)="$event.stopPropagation()">
+        <div class="eyebrow">Coming Soon</div>
+        <h2 class="title-lg">Planned for the desktop pass</h2>
+        <p class="text-soft">{{ message }}</p>
+        <button class="btn-primary" type="button" (click)="closeComingSoon()">Close</button>
+      </div>
+    </div>
+  }
+</div>

@@ -7,7 +7,6 @@ import com.fiberman.fiberman_java_backend.dto.FiberCallResponse;
 import com.fiberman.fiberman_java_backend.dto.GetChannelApiRequest;
 import com.fiberman.fiberman_java_backend.dto.GetPaymentStatusApiRequest;
 import com.fiberman.fiberman_java_backend.dto.SendPaymentApiRequest;
-import com.fiberman.sdk.client.FiberClient;
 import com.fiberman.sdk.exception.FiberHttpException;
 import com.fiberman.sdk.exception.FiberRpcException;
 import com.fiberman.sdk.exception.FiberSerializationException;
@@ -25,20 +24,20 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FiberGatewayService {
-    private final FiberClient fiberClient;
+    private final RuntimeFiberSettingsService runtimeFiberSettingsService;
     private final ObjectMapper objectMapper;
     private final CodeArtifactService codeArtifactService;
     private final FiberHistoryService fiberHistoryService;
     private final InvoiceQrCodeService invoiceQrCodeService;
 
     public FiberGatewayService(
-            FiberClient fiberClient,
+            RuntimeFiberSettingsService runtimeFiberSettingsService,
             ObjectMapper objectMapper,
             CodeArtifactService codeArtifactService,
             FiberHistoryService fiberHistoryService,
             InvoiceQrCodeService invoiceQrCodeService
     ) {
-        this.fiberClient = fiberClient;
+        this.runtimeFiberSettingsService = runtimeFiberSettingsService;
         this.objectMapper = objectMapper;
         this.codeArtifactService = codeArtifactService;
         this.fiberHistoryService = fiberHistoryService;
@@ -46,6 +45,7 @@ public class FiberGatewayService {
     }
 
     public FiberCallResponse nodeInfo(HttpSession session) {
+        var fiberClient = runtimeFiberSettingsService.createClient();
         return execute(
                 session,
                 "/api/fiber/node-info",
@@ -56,6 +56,7 @@ public class FiberGatewayService {
     }
 
     public FiberCallResponse listChannels(HttpSession session) {
+        var fiberClient = runtimeFiberSettingsService.createClient();
         return execute(
                 session,
                 "/api/fiber/channels",
@@ -66,6 +67,7 @@ public class FiberGatewayService {
     }
 
     public FiberCallResponse getChannel(HttpSession session, GetChannelApiRequest request) {
+        var fiberClient = runtimeFiberSettingsService.createClient();
         return execute(
                 session,
                 "/api/fiber/channels/details",
@@ -76,6 +78,7 @@ public class FiberGatewayService {
     }
 
     public FiberCallResponse listPeers(HttpSession session) {
+        var fiberClient = runtimeFiberSettingsService.createClient();
         return execute(
                 session,
                 "/api/fiber/peers",
@@ -86,6 +89,7 @@ public class FiberGatewayService {
     }
 
     public FiberCallResponse createInvoice(HttpSession session, CreateInvoiceApiRequest request) {
+        var fiberClient = runtimeFiberSettingsService.createClient();
         CreateInvoiceRequest sdkRequest = new CreateInvoiceRequest(
                 request.amount(),
                 request.currency(),
@@ -112,6 +116,7 @@ public class FiberGatewayService {
     }
 
     public FiberCallResponse sendPayment(HttpSession session, SendPaymentApiRequest request) {
+        var fiberClient = runtimeFiberSettingsService.createClient();
         SendPaymentRequest sdkRequest = new SendPaymentRequest(
                 request.invoice(),
                 request.amount(),
@@ -135,6 +140,7 @@ public class FiberGatewayService {
     }
 
     public FiberCallResponse paymentStatus(HttpSession session, GetPaymentStatusApiRequest request) {
+        var fiberClient = runtimeFiberSettingsService.createClient();
         return execute(
                 session,
                 "/api/fiber/payments/status",

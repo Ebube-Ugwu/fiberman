@@ -1,0 +1,337 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss';
+
+:root {
+  --bg-deep: #0a101d;
+  --bg-surface: #141d2b;
+  --bg-panel: #1d2a3b;
+  --bg-panel-soft: rgba(31, 46, 65, 0.8);
+  --bg-code: #191b20;
+  --bg-nav: #171b22;
+  --line: rgba(180, 205, 255, 0.12);
+  --line-strong: rgba(180, 205, 255, 0.22);
+  --text-main: #f3f6fb;
+  --text-soft: #b1bdd3;
+  --text-muted: #78859d;
+  --accent: #ffb536;
+  --accent-strong: #ff9e1f;
+  --accent-ink: #2b1700;
+  --success: #60d67c;
+  --danger: #ef6a6a;
+  --shadow-xl: 0 28px 70px rgba(0, 0, 0, 0.38);
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family:
+    Aptos,
+    'Segoe UI Variable',
+    'Segoe UI',
+    sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(72, 111, 190, 0.28), transparent 28%),
+    radial-gradient(circle at right bottom, rgba(255, 181, 54, 0.12), transparent 24%),
+    linear-gradient(180deg, #edf3fc 0%, #dbe7fb 6%, #c5d5f0 11%, #101725 11.4%, #090e18 100%);
+  color: var(--text-main);
+}
+
+body {
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.page-shell {
+  min-height: 100dvh;
+  padding: 18px;
+}
+
+.window-frame {
+  width: min(1320px, calc(100vw - 36px));
+  min-height: calc(100dvh - 36px);
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, #0f1725 0%, #0a0f17 100%);
+  box-shadow: var(--shadow-xl);
+}
+
+.screen-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(33, 47, 68, 0.94), rgba(18, 24, 34, 0.92));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.card-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.title-xl {
+  font-size: clamp(1.8rem, 2vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.title-lg {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.text-soft {
+  color: var(--text-soft);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(81, 173, 103, 0.25);
+  background: rgba(23, 58, 36, 0.84);
+  color: #dcf8e3;
+  font-size: 0.92rem;
+}
+
+.status-pill::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--success);
+  box-shadow: 0 0 16px var(--success);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-primary,
+.btn-secondary,
+.tab-button {
+  border: 1px solid transparent;
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    background 140ms ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.tab-button:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #ffbd43, #fca726);
+  color: var(--accent-ink);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-main);
+  border-color: var(--line);
+  border-radius: 10px;
+  padding: 0.78rem 1rem;
+}
+
+.tab-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tab-button {
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-soft);
+  border-color: var(--line);
+}
+
+.tab-button.active {
+  background: rgba(255, 181, 54, 0.14);
+  color: #ffd88a;
+  border-color: rgba(255, 181, 54, 0.42);
+}
+
+.field-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ecf1ff;
+  font-size: 0.94rem;
+}
+
+.field-control {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(165, 189, 226, 0.22);
+  background: linear-gradient(180deg, rgba(30, 39, 54, 0.92), rgba(19, 26, 36, 0.92));
+  color: var(--text-main);
+  padding: 0.95rem 1rem;
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.field-control:focus {
+  border-color: rgba(255, 181, 54, 0.55);
+  box-shadow: 0 0 0 3px rgba(255, 181, 54, 0.12);
+}
+
+.field-control::placeholder {
+  color: #6d7b95;
+}
+
+.code-block {
+  margin: 0;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background:
+    radial-gradient(circle at top right, rgba(196, 224, 125, 0.06), transparent 22%),
+    linear-gradient(180deg, #20201d, #131417);
+  color: #f1f6d0;
+  font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+.table-shell {
+  overflow: auto;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(11, 16, 25, 0.62);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.92rem;
+}
+
+th {
+  color: var(--text-soft);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.pill-positive,
+.pill-negative,
+.pill-neutral {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.pill-positive {
+  background: rgba(96, 214, 124, 0.15);
+  color: #8ae89f;
+}
+
+.pill-negative {
+  background: rgba(239, 106, 106, 0.15);
+  color: #ff9a9a;
+}
+
+.pill-neutral {
+  background: rgba(255, 181, 54, 0.15);
+  color: #ffd27c;
+}
+
+.empty-state-card {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 181, 54, 0.26);
+  background: rgba(255, 181, 54, 0.08);
+  color: #ffd88a;
+}
+
+@media (max-width: 960px) {
+  .window-frame {
+    width: min(100vw, calc(100vw - 18px));
+    min-height: calc(100dvh - 18px);
+  }
+
+  .page-shell {
+    padding: 9px;
+  }
+}

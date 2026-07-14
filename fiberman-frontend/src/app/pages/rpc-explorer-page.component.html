@@ -1,0 +1,226 @@
+<section>
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">Fiber Playground</div>
+      <h1 class="title-xl">⚡ FIBER RPC EXPLORER</h1>
+      <p class="text-soft">Method: {{ methods.find((m) => m.key === selectedMethod())?.label }}</p>
+    </div>
+  </div>
+
+  <div class="explorer-grid">
+    <article class="screen-panel input-panel">
+      <h2>Method Input</h2>
+
+      @if (formError(); as message) {
+        <div class="empty-state-card">{{ message }}</div>
+      }
+
+      <div class="field-grid">
+        <label>
+          <span class="field-label">RPC Method:</span>
+          <select
+            class="field-control"
+            [ngModel]="selectedMethod()"
+            (ngModelChange)="selectedMethod.set($event)"
+          >
+            @for (method of methods; track method.key) {
+              <option [value]="method.key">{{ method.label }}</option>
+            }
+          </select>
+        </label>
+
+        @if (supportsField('amount') && selectedMethod() === 'new_invoice') {
+          <label>
+            <span class="field-label">Invoice Amount (sat):</span>
+            <input class="field-control" type="number" [(ngModel)]="invoiceAmount" />
+          </label>
+        }
+
+        @if (supportsField('description')) {
+          <label>
+            <span class="field-label">Description:</span>
+            <input class="field-control" [(ngModel)]="description" />
+          </label>
+        }
+
+        @if (selectedMethod() === 'new_invoice') {
+          <label>
+            <span class="field-label">Currency:</span>
+            <input
+              class="field-control"
+              [(ngModel)]="currency"
+              [placeholder]="defaultInvoiceCurrency() || 'Configured in Settings'"
+            />
+          </label>
+        }
+
+        @if (supportsField('expiry')) {
+          <label>
+            <span class="field-label">Expires In (secs):</span>
+            <input class="field-control" type="number" [(ngModel)]="expirySeconds" />
+          </label>
+        }
+
+        @if (supportsField('invoice')) {
+          <label>
+            <span class="field-label">Invoice:</span>
+            <textarea class="field-control multiline" [(ngModel)]="invoice"></textarea>
+          </label>
+        }
+
+        @if (selectedMethod() === 'send_payment') {
+          <label>
+            <span class="field-label">Amount Override (optional):</span>
+            <input class="field-control" type="number" [(ngModel)]="paymentAmount" />
+          </label>
+
+          <label>
+            <span class="field-label">Timeout (secs):</span>
+            <input class="field-control" type="number" [(ngModel)]="timeoutSeconds" />
+          </label>
+        }
+
+      </div>
+
+      <button class="btn-primary execute" (click)="execute()">
+        {{ loading() ? 'RUNNING...' : 'EXECUTE CALL ⚡' }}
+      </button>
+    </article>
+
+    <article class="screen-panel output-panel">
+      <div class="panel-head">
+        <h2>Response &amp; Generated Code</h2>
+        <div class="tab-row">
+          <button
+            class="tab-button"
+            [class.active]="activePane() === 'json'"
+            (click)="activePane.set('json')"
+          >
+            Raw JSON
+          </button>
+          <button
+            class="tab-button"
+            [class.active]="activePane() === 'snippets'"
+            (click)="activePane.set('snippets')"
+          >
+            Runnable Snippets
+          </button>
+          <button
+            class="tab-button"
+            [class.active]="activePane() === 'history'"
+            (click)="activePane.set('history')"
+          >
+            History
+          </button>
+        </div>
+      </div>
+
+      @if (activePane() === 'json') {
+        <div class="copyable-code-shell">
+          <button class="copyable-code-button" type="button" (click)="copyFormattedPayload()">{{ payloadCopyLabel() }}</button>
+          <pre class="code-block">{{ formattedCurrentPayload() }}</pre>
+        </div>
+      }
+
+      @if (activePane() === 'snippets') {
+        <div class="snippet-stack">
+          <div class="snippet-card">
+            <div class="snippet-head">
+              <span>// cURL Example</span>
+              <button
+                class="btn-secondary"
+                (click)="copy(currentResponse()?.codeArtifacts?.curl ?? '')"
+              >
+                Copy cURL
+              </button>
+            </div>
+            <pre class="code-block">{{
+              currentResponse()?.codeArtifacts?.curl ||
+                'Execute a method to generate a runnable cURL command.'
+            }}</pre>
+          </div>
+
+          <div class="snippet-card">
+            <div class="snippet-head">
+              <span>// SDK Example</span>
+              <div class="snippet-language-row">
+                <button
+                  class="snippet-language-button"
+                  [class.active]="snippetLanguageIs('java')"
+                  (click)="selectSnippetLanguage('java')"
+                >
+                  Java
+                </button>
+                <button
+                  class="snippet-language-button"
+                  [class.active]="snippetLanguageIs('golang')"
+                  (click)="selectSnippetLanguage('golang')"
+                >
+                  Golang
+                </button>
+                <button
+                  class="snippet-language-button"
+                  type="button"
+                  (click)="selectSnippetLanguage('typescript')"
+                >
+                  TypeScript
+                </button>
+                <button
+                  class="snippet-language-button snippet-language-future"
+                  type="button"
+                  (click)="selectSnippetLanguage('rust')"
+                >
+                  Rust
+                </button>
+              </div>
+            </div>
+            <pre class="code-block">{{ formattedSnippet() }}</pre>
+            <div class="snippet-copy-row">
+              <button class="btn-secondary" (click)="copyCurrentSnippet()">
+                {{ currentSnippetCopyLabel() }}
+              </button>
+            </div>
+          </div>
+
+          @if (currentResponse()?.invoiceQrCode; as qr) {
+            <div class="qr-row">
+              <img [src]="qr.dataUrl" [alt]="qr.value" class="qr-image" />
+              <div class="qr-copy">
+                <div class="text-soft">SCAN TO PAY:</div>
+                <div class="qr-value">{{ qr.value }}</div>
+                <button class="btn-secondary" (click)="copy(qr.value)">Copy Invoice</button>
+              </div>
+            </div>
+          }
+        </div>
+      }
+
+      @if (activePane() === 'history') {
+        <div class="history-list">
+          @for (entry of history(); track entry.historyId) {
+            <button class="history-item" (click)="selectHistory(entry)">
+              <div>
+                <strong>{{ entry.method }}</strong>
+                <div class="text-soft">{{ entry.timestamp | date: 'medium' }}</div>
+              </div>
+              <span [class]="entry.success ? 'pill-positive' : 'pill-negative'">
+                {{ entry.success ? 'Success' : 'Failed' }}
+              </span>
+            </button>
+          }
+        </div>
+      }
+    </article>
+  </div>
+
+  @if (snippetPopupMessage(); as message) {
+    <div class="snippet-modal-backdrop" (click)="closeSnippetPopup()">
+      <div class="snippet-modal-card screen-panel" (click)="$event.stopPropagation()">
+        <div class="eyebrow">Coming Soon</div>
+        <h2>Future SDK Language</h2>
+        <p class="text-soft">{{ message }}</p>
+        <button class="btn-primary" type="button" (click)="closeSnippetPopup()">Close</button>
+      </div>
+    </div>
+  }
+</section>

@@ -1,0 +1,18 @@
+services:
+  fiberman:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9010:9010"
+      - "8228:8228"
+    environment:
+      SERVER_PORT: 9010
+      FIBER_NODE_URL: ${FIBER_NODE_URL:-http://127.0.0.1:8227}
+      FIBER_NODE_AUTH_TOKEN: ${FIBER_NODE_AUTH_TOKEN:-}
+      FIBER_NODE_TIMEOUT_SECONDS: ${FIBER_NODE_TIMEOUT_SECONDS:-30}
+      FIBER_PLAYGROUND_BASE_URL: ${FIBER_PLAYGROUND_BASE_URL:-http://localhost:9010}
+      FIBER_SECRET_KEY_PASSWORD: ${FIBER_SECRET_KEY_PASSWORD:-fiberman-demo-password}
+      FIBER_RUST_LOG: ${FIBER_RUST_LOG:-info}
+    volumes:
+      - ./var/fiber-node:/fiber:Z

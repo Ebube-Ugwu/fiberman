@@ -1,0 +1,49 @@
+<section>
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">Node Overview</div>
+      <h1 class="title-lg">Dashboard</h1>
+    </div>
+  </div>
+
+  <div class="dashboard-grid">
+    <article class="screen-panel stat-card">
+      <div class="stat-label">Node Health</div>
+      <div class="stat-value stat-green">{{ nodeHealth() }}%</div>
+    </article>
+    <article class="screen-panel stat-card">
+      <div class="stat-label">Active Channels</div>
+      <div class="stat-value">{{ activeChannels() }}</div>
+    </article>
+    <article class="screen-panel stat-card">
+      <div class="stat-label">Total Liquidity</div>
+      <div class="stat-value">{{ liquidityText() }}</div>
+    </article>
+
+    <article class="screen-panel chart-card">
+      <div class="chart-title">Transaction Volume (24h)</div>
+      <div class="bars">
+        @for (bar of volumeBars; track $index) {
+          <div class="bar-column">
+            <div class="bar-fill" [style.height.%]="bar"></div>
+          </div>
+        }
+      </div>
+      <div class="text-soft metric-caption">
+        {{ transactionVolume() | number }} sats routed from this session
+      </div>
+    </article>
+
+    <article class="screen-panel chart-card">
+      <div class="chart-title">Network Latency</div>
+      <div class="line-chart">
+        @for (point of latencyData; track $index) {
+          <span class="line-segment" [style.height.%]="point * 2"></span>
+        }
+      </div>
+      <div class="text-soft metric-caption">
+        Peer round-trip remains inside demo-safe range
+      </div>
+    </article>
+  </div>
+</section>

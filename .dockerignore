@@ -1,0 +1,8 @@
+.git
+.agents
+.codex
+.gradle
+fiber-java-sdk/target
+fiberman-java-backend/build
+fiberman-frontend/dist
+fiberman-frontend/node_modules

@@ -1,0 +1,16 @@
+[Unit]
+Description=Fiberman Go backend
+After=network-online.target fnn.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=holo-1
+Group=holo-1
+EnvironmentFile=/etc/fiberman/fiberman-go.env
+ExecStart=/usr/local/bin/fiberman-go-backend
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

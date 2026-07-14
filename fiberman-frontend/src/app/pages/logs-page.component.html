@@ -1,0 +1,27 @@
+<section>
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">Diagnostics</div>
+      <h1 class="title-lg">☰ Logs</h1>
+    </div>
+  </div>
+
+  <article class="screen-panel logs-panel">
+    <div class="logs-toolbar">
+      <div class="field-control search-shell">Search</div>
+      <div class="badge">Filter by: log level</div>
+    </div>
+
+    <div class="log-stream">
+      @for (line of logLines(); track line.timestamp + line.message) {
+        <div class="log-line">
+          <span class="log-time">{{ line.timestamp | date:'mediumTime' }}</span>
+          <span [class]="line.level === 'INFO' ? 'log-level info' : 'log-level error'">{{ line.level }}</span>
+          <span class="log-message">{{ line.message }}</span>
+        </div>
+      } @empty {
+        <div class="log-line empty">No session logs yet. Execute a few RPC calls to populate the stream.</div>
+      }
+    </div>
+  </article>
+</section>

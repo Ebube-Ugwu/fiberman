@@ -1,0 +1,61 @@
+<section>
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">Configuration</div>
+      <h1 class="title-lg">⚙ Settings</h1>
+    </div>
+  </div>
+
+  <div class="settings-grid">
+    <article class="screen-panel settings-nav">
+      <button class="settings-tab active" type="button">Runtime Config</button>
+      <div class="settings-note">
+        These settings are applied by the running Java backend immediately. Existing browser tabs pick them up on the next call.
+      </div>
+    </article>
+
+    <article class="screen-panel settings-form">
+      <div class="settings-head">
+        <div>
+          <h2>Fiber Node</h2>
+          <div class="settings-subtitle">Configure the local or remote FNN/Fiber node used by this playground.</div>
+        </div>
+        <div class="status-badge">API Base: {{ settings().playgroundBaseUrl }}</div>
+      </div>
+
+      @if (error(); as message) {
+        <div class="settings-alert">{{ message }}</div>
+      }
+
+      <div class="field-grid">
+        <label>
+          <span class="field-label">Node URL</span>
+          <input class="field-control" [(ngModel)]="nodeUrl" placeholder="http://127.0.0.1:8227" />
+        </label>
+        <label>
+          <span class="field-label">Request Timeout (seconds)</span>
+          <input class="field-control" type="number" min="1" [(ngModel)]="timeoutSeconds" />
+        </label>
+        <label>
+          <span class="field-label">Auth Token</span>
+          <input class="field-control" [(ngModel)]="authToken" placeholder="Optional bearer token" />
+        </label>
+        <label>
+          <span class="field-label">Default Invoice Currency</span>
+          <input class="field-control" [(ngModel)]="defaultInvoiceCurrency" placeholder="Leave blank until your node confirms a supported asset code" />
+        </label>
+      </div>
+
+      <div class="settings-callout">
+        Recommendation: do not hardcode a currency like <code>FIBD</code> unless your node explicitly supports it. Leave this blank and set it only after verifying a valid asset code against your node.
+      </div>
+
+      <div class="settings-actions">
+        <button class="btn-secondary" type="button" (click)="reset()">Reset</button>
+        <button class="btn-primary" type="button" (click)="save()">
+          {{ saving() ? 'Saving...' : 'Save Runtime Settings' }}
+        </button>
+      </div>
+    </article>
+  </div>
+</section>

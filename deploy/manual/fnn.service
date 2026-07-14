@@ -1,0 +1,19 @@
+[Unit]
+Description=Fiber node
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=holo-1
+Group=holo-1
+EnvironmentFile=-/etc/fiberman/fnn.env
+Environment=FIBER_HOME=/home/holo-1/fiber-data
+Environment=FNN_CONFIG_DIR=/home/holo-1/fnn-config
+Environment=FNN_NETWORK=testnet
+ExecStart=/usr/local/lib/fiberman/fnn-run.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

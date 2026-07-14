@@ -1,0 +1,44 @@
+.logs-panel {
+  padding: 18px;
+}
+
+.logs-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.search-shell {
+  width: 240px;
+  color: var(--text-muted);
+}
+
+.log-stream {
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, #181919, #101112);
+  font-family: 'Cascadia Code', monospace;
+}
+
+.log-line {
+  display: grid;
+  grid-template-columns: 110px 64px 1fr;
+  gap: 12px;
+  padding: 6px 0;
+  color: #d1d6dc;
+  font-size: 0.86rem;
+}
+
+.log-level.info {
+  color: #86c8ff;
+}
+
+.log-level.error {
+  color: #ff8e8e;
+}
+
+.empty {
+  grid-template-columns: 1fr;
+  color: var(--text-muted);
+}

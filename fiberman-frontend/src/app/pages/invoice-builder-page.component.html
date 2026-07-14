@@ -1,0 +1,65 @@
+<section>
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">Builder</div>
+      <h1 class="title-lg">⚡ Invoice Builder</h1>
+    </div>
+  </div>
+
+  <div class="invoice-grid">
+    <article class="screen-panel invoice-form">
+      <h2>Invoice Input</h2>
+      <div class="field-grid">
+        <label>
+          <span class="field-label">Description</span>
+          <input class="field-control" [(ngModel)]="description" />
+        </label>
+
+        <label>
+          <span class="field-label">Amount (sat)</span>
+          <input class="field-control" type="number" [(ngModel)]="amount" />
+        </label>
+
+        <label>
+          <span class="field-label">Memo</span>
+          <input class="field-control" [(ngModel)]="memo" />
+        </label>
+
+        <label>
+          <span class="field-label">Expiry</span>
+          <input class="field-control" [(ngModel)]="expiry" />
+        </label>
+
+        <label>
+          <span class="field-label">Metadata (LIGON)</span>
+          <textarea class="field-control metadata" [(ngModel)]="metadata"></textarea>
+        </label>
+      </div>
+    </article>
+
+    <article class="screen-panel invoice-preview">
+      <div class="preview-head">
+        <h2>BOLT11 Invoice</h2>
+        <button class="btn-primary" (click)="buildInvoice()">
+          {{ loading() ? 'BUILDING...' : 'BUILD INVOICE ⚡' }}
+        </button>
+      </div>
+
+      @if (validationMessage(); as message) {
+        <div class="empty-state-card">{{ message }}</div>
+      } @else {
+        <div class="text-soft">Using default currency: {{ defaultInvoiceCurrency() || 'Not configured' }}</div>
+      }
+
+      <div class="invoice-code">{{ invoiceValue() }}</div>
+
+      @if (response()?.invoiceQrCode; as qr) {
+        <img [src]="qr.dataUrl" [alt]="qr.value" class="invoice-qr" />
+      } @else {
+        <div class="invoice-placeholder">QR preview appears after invoice generation.</div>
+      }
+
+      <button class="btn-secondary" (click)="copy(invoiceValue())">Copy Invoice</button>
+    </article>
+  </div>
+</section>

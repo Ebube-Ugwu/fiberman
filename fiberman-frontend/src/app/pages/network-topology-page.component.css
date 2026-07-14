@@ -1,0 +1,82 @@
+.topology-panel {
+  min-height: 610px;
+  padding: 18px;
+}
+
+.topology-canvas {
+  position: relative;
+  min-height: 560px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at center, rgba(81, 120, 201, 0.28), transparent 12%),
+    linear-gradient(180deg, rgba(10, 16, 27, 0.98), rgba(8, 12, 20, 0.98));
+  overflow: hidden;
+}
+
+.core-ring,
+.core-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.ring-1 {
+  width: 138px;
+  height: 138px;
+  border: 14px solid rgba(82, 212, 187, 0.2);
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.06);
+}
+
+.ring-2 {
+  width: 96px;
+  height: 96px;
+  border: 12px solid rgba(113, 148, 255, 0.45);
+}
+
+.ring-3 {
+  width: 60px;
+  height: 60px;
+  border: 10px solid rgba(255, 179, 54, 0.48);
+}
+
+.core-center {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(180deg, #ffca6b, #f79a24);
+  box-shadow: 0 0 30px rgba(255, 181, 54, 0.35);
+}
+
+.peer-node {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  border: 0;
+  background: var(--node-color);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--node-color) 60%, transparent);
+}
+
+.connection-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 170px;
+  transform-origin: top center;
+  background: linear-gradient(180deg, var(--line-color), transparent);
+}
+
+.tooltip-card {
+  position: absolute;
+  right: 118px;
+  top: 155px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 181, 54, 0.2);
+  background: rgba(43, 40, 35, 0.95);
+  color: #f0e2b2;
+  min-width: 160px;
+}

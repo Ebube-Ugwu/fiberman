@@ -2,8 +2,6 @@ package com.fiberman.fiberman_java_backend.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fiberman.fiberman_java_backend.config.FiberPlaygroundProperties;
-import com.fiberman.fiberman_java_backend.config.FiberNodeProperties;
 import com.fiberman.fiberman_java_backend.dto.CodeArtifacts;
 import java.util.Map;
 import org.springframework.stereotype.Service;
@@ -11,23 +9,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class CodeArtifactService {
     private final ObjectMapper objectMapper;
-    private final FiberPlaygroundProperties playgroundProperties;
-    private final FiberNodeProperties nodeProperties;
+    private final RuntimeFiberSettingsService runtimeFiberSettingsService;
 
     public CodeArtifactService(
             ObjectMapper objectMapper,
-            FiberPlaygroundProperties playgroundProperties,
-            FiberNodeProperties nodeProperties
+            RuntimeFiberSettingsService runtimeFiberSettingsService
     ) {
         this.objectMapper = objectMapper;
-        this.playgroundProperties = playgroundProperties;
-        this.nodeProperties = nodeProperties;
+        this.runtimeFiberSettingsService = runtimeFiberSettingsService;
     }
 
     public CodeArtifacts generate(String backendPath, String sdkMethodCall, Object requestBody) {
         return new CodeArtifacts(
                 buildCurl(backendPath, requestBody),
-                buildJavaSnippet(sdkMethodCall));
+                buildJavaSnippet(sdkMethodCall),
+                buildGoSnippet(sdkMethodCall));
     }
 
     private String buildCurl(String backendPath, Object requestBody) {
@@ -35,7 +31,7 @@ public class CodeArtifactService {
                 .append("curl -X ")
                 .append(requestBody == null ? "GET" : "POST")
                 .append(" \"")
-                .append(playgroundProperties.baseUrl())
+                .append(runtimeFiberSettingsService.playgroundBaseUrl())
                 .append(backendPath)
                 .append("\"");
 
@@ -50,9 +46,10 @@ public class CodeArtifactService {
     }
 
     private String buildJavaSnippet(String sdkMethodCall) {
-        String authLine = nodeProperties.authToken() == null || nodeProperties.authToken().isBlank()
+        String authToken = runtimeFiberSettingsService.authToken();
+        String authLine = authToken == null || authToken.isBlank()
                 ? ""
-                : "    .authToken(\"" + escapeJava(nodeProperties.authToken()) + "\")\n";
+                : "    .authToken(\"" + escapeJava(authToken) + "\")\n";
 
         return """
                 FiberClient client = FiberClient.builder()
@@ -61,9 +58,33 @@ public class CodeArtifactService {
 
                 var response = %s;
                 """.formatted(
-                escapeJava(nodeProperties.url()),
+                escapeJava(runtimeFiberSettingsService.nodeUrl()),
                 authLine,
                 sdkMethodCall);
+    }
+
+    private String buildGoSnippet(String sdkMethodCall) {
+        String authToken = runtimeFiberSettingsService.authToken();
+        String authLine = authToken == null || authToken.isBlank()
+                ? ""
+                : "    AuthToken: \"" + escapeJava(authToken) + "\",\n";
+
+        return """
+                sdk, err := client.New(client.Config{
+                    BaseURL: "%s",
+                %s})
+                if err != nil {
+                    log.Fatal(err)
+                }
+
+                response, err := %s
+                if err != nil {
+                    log.Fatal(err)
+                }
+                """.formatted(
+                escapeJava(runtimeFiberSettingsService.nodeUrl()),
+                authLine,
+                sdkMethodCall.replace("client.", "sdk."));
     }
 
     private String toJson(Object requestBody) {

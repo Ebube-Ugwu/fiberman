@@ -1,0 +1,13 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "fiberman-wails",
+  "outputfilename": "fiberman",
+  "frontend:install": "echo 'No frontend install required for Wails wrapper'",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Ebube Ugwu",
+    "email": "137618036+Ebube-Ugwu@users.noreply.github.com"
+  }
+}
