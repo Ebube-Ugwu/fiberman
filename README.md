@@ -360,10 +360,6 @@ Potential future features:
 - CI-ready SDK smoke tooling and integration verification kits
 - operator-grade logging export and structured audit trails
 
-## Submission Material
-
-The hackathon submission pack lives in [docs/fiber-hackathon-submission.md](docs/fiber-hackathon-submission.md).
-
 ## Status
 
 FiberMan is already credible as:
