@@ -129,9 +129,9 @@
               <span>// cURL Example</span>
               <button
                 class="btn-secondary"
-                (click)="copy(currentResponse()?.codeArtifacts?.curl ?? '')"
+                (click)="copyCurl()"
               >
-                Copy cURL
+                {{ curlCopyLabel() }}
               </button>
             </div>
             <pre class="code-block">{{

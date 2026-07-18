@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import { Component, OnInit, WritableSignal, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FiberApiService } from '../core/fiber-api.service';
 import { FiberCallResponse } from '../core/fiber-types';
@@ -47,6 +47,8 @@ export class RpcExplorerPageComponent implements OnInit {
   protected readonly selectedSnippetLanguage = signal<SnippetLanguage>('java');
   protected readonly snippetPopupMessage = signal<string | null>(null);
   protected readonly payloadCopied = signal(false);
+  protected readonly curlCopied = signal(false);
+  protected readonly snippetCopied = signal(false);
 
   protected invoiceAmount = 25000;
   protected currency = '';
@@ -159,8 +161,8 @@ export class RpcExplorerPageComponent implements OnInit {
 
     const artifacts = this.currentResponse()?.codeArtifacts;
     const value = language === 'golang' ? artifacts?.goSnippet : artifacts?.javaSnippet;
-    this.copy(value ?? '');
     this.selectedSnippetLanguage.set(language);
+    this.copySnippetValue(value ?? '');
   }
 
   protected copyCurrentSnippet(): void {
@@ -168,7 +170,18 @@ export class RpcExplorerPageComponent implements OnInit {
   }
 
   protected currentSnippetCopyLabel(): string {
+    if (this.snippetCopied()) {
+      return 'Copied';
+    }
     return this.selectedSnippetLanguage() === 'golang' ? 'Copy as Golang' : 'Copy as Java';
+  }
+
+  protected copyCurl(): void {
+    this.copyWithFeedback(this.currentResponse()?.codeArtifacts?.curl ?? '', this.curlCopied);
+  }
+
+  protected curlCopyLabel(): string {
+    return this.curlCopied() ? 'Copied' : 'Copy cURL';
   }
 
   protected closeSnippetPopup(): void {
@@ -180,6 +193,10 @@ export class RpcExplorerPageComponent implements OnInit {
       return;
     }
     navigator.clipboard.writeText(value).catch(() => undefined);
+  }
+
+  private copySnippetValue(value: string): void {
+    this.copyWithFeedback(value, this.snippetCopied);
   }
 
   protected formattedCurrentPayload(): string {
@@ -195,6 +212,17 @@ export class RpcExplorerPageComponent implements OnInit {
 
   protected payloadCopyLabel(): string {
     return this.payloadCopied() ? 'Copied' : 'Copy';
+  }
+
+  private copyWithFeedback(value: string | null | undefined, copiedSignal: WritableSignal<boolean>): void {
+    if (!value) {
+      return;
+    }
+
+    navigator.clipboard.writeText(value).then(() => {
+      copiedSignal.set(true);
+      window.setTimeout(() => copiedSignal.set(false), 1200);
+    }).catch(() => undefined);
   }
 
   protected supportsField(field: 'invoice' | 'amount' | 'description' | 'expiry'): boolean {
