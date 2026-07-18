@@ -186,10 +186,6 @@ If FiberMan is funded and expanded, the next major features would include:
 - the desktop app is the main product direction
 - the Go runtime path is the lighter long-term execution path
 
-## Submission Material
-
-- [docs/fiber-hackathon-submission.md](docs/fiber-hackathon-submission.md)
-
 ## License
 
 - [MIT](./LICENSE)
