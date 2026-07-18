@@ -35,15 +35,15 @@ The web UI exists to demonstrate the workflows quickly. The desktop app is the p
 
 ## Screenshots
 
-![FiberMan Screenshot 1](</home/ebube/projects/portfolio/fiberman/assets/Screenshot From 2026-07-17 00-01-44.png>)
-![FiberMan Screenshot 2](</home/ebube/projects/portfolio/fiberman/assets/Screenshot From 2026-07-17 00-06-42.png>)
-![FiberMan Screenshot 3](</home/ebube/projects/portfolio/fiberman/assets/Screenshot From 2026-07-17 00-07-36.png>)
-![FiberMan Screenshot 4](</home/ebube/projects/portfolio/fiberman/assets/Screenshot From 2026-07-17 00-07-44.png>)
-![FiberMan Screenshot 5](</home/ebube/projects/portfolio/fiberman/assets/Screenshot From 2026-07-17 00-08-00.png>)
+![FiberMan Screenshot 1](./assets/Screenshot From 2026-07-17 00-01-44.png>)
+![FiberMan Screenshot 2](./assets/Screenshot From 2026-07-17 00-06-42.png>)
+![FiberMan Screenshot 3](./assets/Screenshot From 2026-07-17 00-07-36.png>)
+![FiberMan Screenshot 4](./assets/Screenshot From 2026-07-17 00-07-44.png>)
+![FiberMan Screenshot 5](./assets/Screenshot From 2026-07-17 00-08-00.png>)
 
 ## Video Demo
 
-- [FiberMan Demo Video](</home/ebube/projects/portfolio/fiberman/assets/Fiberman-demo.mp4>)
+- [FiberMan Demo Video](./assets/Fiberman-demo.mp4)
 
 ## Repository Layout
 
@@ -185,3 +185,7 @@ If FiberMan is funded and expanded, the next major features would include:
 ## Submission Material
 
 - [docs/fiber-hackathon-submission.md](docs/fiber-hackathon-submission.md)
+
+## License
+
+- [MIT](./LICENSE)
