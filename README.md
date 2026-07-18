@@ -35,15 +35,17 @@ The web UI exists to demonstrate the workflows quickly. The desktop app is the p
 
 ## Screenshots
 
-![FiberMan Screenshot 1](./assets/Screenshot From 2026-07-17 00-01-44.png>)
-![FiberMan Screenshot 2](./assets/Screenshot From 2026-07-17 00-06-42.png>)
-![FiberMan Screenshot 3](./assets/Screenshot From 2026-07-17 00-07-36.png>)
-![FiberMan Screenshot 4](./assets/Screenshot From 2026-07-17 00-07-44.png>)
-![FiberMan Screenshot 5](./assets/Screenshot From 2026-07-17 00-08-00.png>)
+![FiberMan Screenshot 1](./assets/Screenshot%20From%202026-07-17%2000-01-44.png)
+![FiberMan Screenshot 2](./assets/Screenshot%20From%202026-07-17%2000-06-42.png)
+![FiberMan Screenshot 3](./assets/Screenshot%20From%202026-07-17%2000-07-36.png)
+![FiberMan Screenshot 4](./assets/Screenshot%20From%202026-07-17%2000-07-44.png)
+![FiberMan Screenshot 5](./assets/Screenshot%20From%202026-07-17%2000-08-00.png)
 
 ## Video Demo
+<video src="./assets/Fiberman-demo.mp4" controls width="640" height="360">
+  Your browser does not support the video tag.
+</video>
 
-- [FiberMan Demo Video](./assets/Fiberman-demo.mp4)
 
 ## Repository Layout
 
