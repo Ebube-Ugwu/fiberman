@@ -1,6 +1,7 @@
 # FiberMan
 
-FiberMan is a desktop-first Fiber operations workbench for developers, wallet teams, merchants, and node operators. It helps you test live Fiber RPC flows, inspect node behavior, generate runnable code, and move faster from exploration to integration. It also feature reusable SDKs in Java and Golang (for now🙃), since the architecture is decoupled, the sdk can easily be reused to develop other application and/or libraries.
+FiberMan is a desktop-first Fiber operations workbench for developers, wallet teams, merchants, and node operators. It helps you test live Fiber RPC flows, inspect node behavior, generate runnable code, and move faster from exploration to integration.
+It also features reusable SDKs in Java and Golang (for now🙃), since the architecture is decoupled, the sdk can easily be reused to develop other application and/or libraries.
 
 The web app is the public demo surface. The main product direction is the desktop app.
 
